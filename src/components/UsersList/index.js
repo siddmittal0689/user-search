@@ -1,4 +1,5 @@
 import React from "react";
+import millify from "millify";
 export function UsersList(props) {
   return (
     <div id="users-list">
@@ -15,7 +16,7 @@ export function UsersList(props) {
             </thead>
             <tbody>
             { props.campaignArray.length ? props.campaignArray.map(user =>(
-                <tr key={user.id}>
+                <tr key={user.name}>
                     <td>{user.campaignName}</td>
                     <td>{user.name}</td>
                     <td>{user.startDate}</td>
@@ -23,7 +24,7 @@ export function UsersList(props) {
                     <td>
                         <i className={`glyphicon glyphicon-record ${user.status}`}></i> {user.status}
                     </td>
-                    <td>{user.Budget} USD</td>
+                    <td>{millify(user.Budget)} USD</td>
                 </tr>)) :
                 <tr>
                     <td colSpan="6">

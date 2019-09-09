@@ -7,6 +7,7 @@ import { DatePicker } from "./components/DatePicker";
 import { SearchUsers } from "./components/SearchUsers";
 import { Loader } from "./components/Loader";
 import * as userActions from './components/actions';
+import moment from "moment";
 
 class App extends  React.Component {
   constructor(props){
@@ -15,9 +16,10 @@ class App extends  React.Component {
       searchText:'',
       filteredUsers: [],
       startDate: '',
-      endDate: ''
+      endDate: '',
     }
   }
+  
 
  componentWillReceiveProps(nextProps){
   const {users}  = this.props;
@@ -62,10 +64,10 @@ class App extends  React.Component {
           searchText.toLowerCase()) !== -1;
       }
       if(startDate){
-        startDateFilter = new Date(user.startDate) > new Date(startDate);
+        startDateFilter = moment(user.startDate) > moment(startDate);
       }
       if(endDate){
-        endDateFilter = new Date(user.endDate) < new Date(endDate);
+        endDateFilter = moment(user.endDate) < moment(endDate);
       }
       return textSearchFilter && startDateFilter && endDateFilter;
       
@@ -106,10 +108,10 @@ class App extends  React.Component {
  
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     users: state.usersCampaign.users,
-    showLoader: state.usersCampaign.showLoader
+    showLoader: state.usersCampaign.showLoader,
   };
 }
 

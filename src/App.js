@@ -17,6 +17,7 @@ class App extends  React.Component {
       filteredUsers: [],
       startDate: '',
       endDate: '',
+      newCampaignArray: [],
     }
   }
   
@@ -30,8 +31,28 @@ class App extends  React.Component {
   }
  }
 
+ updateCampaignArray = (arr) => {
+  this.setState({newCampaignArray : arr});
+ }
+
   componentDidMount = () =>{
-    this.props.actions.loadUsers();
+    const {defaultCampaignArray} =  this.props
+    this.props.actions.loadUsers(defaultCampaignArray);
+    const that = this;
+    window.AddCampaigns = function(arr){
+    console.log(arr, defaultCampaignArray);
+     if(Array.isArray(arr)){
+      that.updateCampaignArray([...defaultCampaignArray,...arr]);
+     } else {
+       console.log("AddCampaigns method accepts only array");
+     }
+   }
+  }
+
+  componentDidUpdate = (prevProps,prevState) => {
+    if(prevState.newCampaignArray !== this.state.newCampaignArray){
+      this.props.actions.loadUsers(this.state.newCampaignArray);
+    }
   }
 
   onTextSearch = (e) =>{
@@ -112,6 +133,7 @@ function mapStateToProps(state) {
   return {
     users: state.usersCampaign.users,
     showLoader: state.usersCampaign.showLoader,
+    defaultCampaignArray: state.usersCampaign.defaultCampaignArray,
   };
 }
 

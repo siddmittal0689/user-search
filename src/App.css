@@ -1,0 +1,19 @@
+.search-area{
+  padding-bottom: 30px;
+}
+
+input[type=date]{
+  margin-right: 20px;
+}
+
+.Active{
+  color: green;
+}
+
+.Inactive{
+  color: red;
+}
+
+.loader{
+  text-align: center;
+}

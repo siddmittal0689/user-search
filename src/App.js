@@ -6,7 +6,7 @@ import { UsersList } from "./components/UsersList";
 import { DatePicker } from "./components/DatePicker";
 import { SearchUsers } from "./components/SearchUsers";
 import { Loader } from "./components/Loader";
-import * as userActions from './components/actions';
+import * as userActions from './actions';
 import moment from "moment";
 
 class App extends  React.Component {
@@ -40,7 +40,6 @@ class App extends  React.Component {
     this.props.actions.loadUsers(defaultCampaignArray);
     const that = this;
     window.AddCampaigns = function(arr){
-    console.log(arr, defaultCampaignArray);
      if(Array.isArray(arr)){
       that.updateCampaignArray([...defaultCampaignArray,...arr]);
      } else {

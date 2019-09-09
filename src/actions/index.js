@@ -1,5 +1,4 @@
 import * as types from './actionTypes';
-import configureStore from '../store/configureStore';
 import moment from "moment";
 
 export function loadUsersSuccess(users) {

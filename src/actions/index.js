@@ -17,7 +17,7 @@ function transformArr(users,campaignArray) {
             }
           })
           if(users.find(user => user.id === item.userId) === undefined){
-            item.name = "Unknown User";
+            item.campaignName = "Unknown User";
           }
           if(moment(item.endDate) >= moment()){
             item.status = "Active";

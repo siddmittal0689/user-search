@@ -80,7 +80,7 @@ class App extends  React.Component {
       let startDateFilter = true;
       let endDateFilter = true;
       if(searchText){
-        textSearchFilter = user.campaignName.toLowerCase().indexOf(
+        textSearchFilter = user.name.toLowerCase().indexOf(
           searchText.toLowerCase()) !== -1;
       }
       if(startDate){

@@ -17,8 +17,8 @@ export function UsersList(props) {
             <tbody>
             { props.campaignArray.length ? props.campaignArray.map(user =>(
                 <tr key={user.name}>
-                    <td>{user.campaignName}</td>
                     <td>{user.name}</td>
+                    <td>{user.campaignName}</td>
                     <td>{user.startDate}</td>
                     <td>{user.endDate}</td>
                     <td>

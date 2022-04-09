@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "millify": "^3.1.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "react-datepicker": "^2.9.6",
     "react-redux": "^7.1.1",
     "redux-thunk": "^2.3.0"
